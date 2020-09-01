@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+
+  {% block head %}
+    <title>Book CIL</title>
+  {% endblock %}
+
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="links">
+        <a href="/" class="active">Home</a>
+        <a href="/utilidades">Utilidades</a>
+        <a href="/instructors">Xaroparia Simples</a>
+        <a href="/">Xaroparia Composta</a>
+        <a href="/">Linha 562</a>
+        <a href="/">Linha 561</a>
+        <a href="/">Sopro</a>
+      </div>
+    </header>
+
+    {% block content %}
+
+    {% endblock %}
+
+  </body>
+</html>

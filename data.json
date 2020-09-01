@@ -1,0 +1,12 @@
+{
+  "instructors": [
+    {
+      "avatar_url": "https://google.com",
+      "name": "Teste",
+      "birth": "2021-12-31",
+      "gender": "M",
+      "services": "Musculação, Crossfit",
+      "created_at": 1588874648343
+    }
+  ]
+}
