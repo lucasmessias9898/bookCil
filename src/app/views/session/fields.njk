@@ -1,0 +1,38 @@
+<div class="item">
+  <div>Id Ambev</div>
+    <div>
+      <input 
+        type="text"
+        name="idambev"
+        placeholder="Digite seu ID Ambev"
+        value="{{ user.idambev }}"
+      >
+    </div>
+  </div>
+
+  {# <div class="item">
+    <div>Email</div>
+    <div>
+      <input 
+        type="email"
+        name="email"
+        placeholder="Digite seu email"
+        value="{{ user.email }}"
+        onblur="Validate.apply(this, 'isEmail')"
+      >
+    </div>
+  </div> #}
+
+  <div class="item">
+    <div>Senha</div>
+    <div>
+      <input 
+        type="password"
+        name="password"
+        placeholder="Digite sua senha"
+        value="{{ user.password }}"
+      >
+    </div>
+  </div>
+
+<button type="submit">Logar</button>

@@ -1,0 +1,32 @@
+<div class="item">
+  <div>Id Ambev</div>
+    <div>
+      <input 
+        type="text"
+        name="idambev"
+        placeholder="Digite seu ID Ambev"
+        value="{{ accomplish.idambev }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Nome Completo</div>
+    <div>
+      <input 
+        type="text"
+        name="name"
+        placeholder="Digite seu nome completo"
+        value="{{ accomplish.name }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Observações</div>
+    <div>
+      <textarea name="description">{{accomplish.description}}</textarea>
+    </div>
+  </div>
+
+<button type="submit">Salvar</button>

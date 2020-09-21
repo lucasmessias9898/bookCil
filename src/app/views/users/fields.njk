@@ -1,0 +1,92 @@
+<div class="item">
+  <div>Id Ambev</div>
+    <div>
+      <input 
+        type="text"
+        name="idambev"
+        placeholder="Digite seu ID Ambev"
+        value="{{ user.idambev }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Nome Usuário</div>
+    <div>
+      <input 
+        type="text"
+        name="name"
+        placeholder="Nome do usuário"
+        value="{{ user.name }}"
+      >
+    </div>
+  </div>
+
+  {# <div class="item">
+    <div>Email</div>
+    <div>
+      <input 
+        type="email"
+        name="email"
+        placeholder="Digite seu email"
+        value="{{ user.email }}"
+        onblur="Validate.apply(this, 'isEmail')"
+      >
+    </div>
+  </div> #}
+
+  <div class="item">
+    <div>Área</div>
+    <div>
+      <select name="area">
+        {% for area in areas %}
+          <option value="{{area.id}}" 
+            {% if user.area_id == area.id %}selected {%endif%}}>
+            {{area.name}}
+          </option>
+        {%endfor%}
+      </select>
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Nível</div>
+    <div>
+      <select name="nivel">
+        <option value="1" 
+          {% if user.nivel == "1"%}selected {%endif%}}>
+          Master
+        </option>
+        <option value="2" 
+          {% if user.nivel == "2"%}selected {%endif%}}>
+          Instrutor
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Senha</div>
+    <div>
+      <input 
+        type="password"
+        name="password"
+        placeholder="Digite sua senha"
+        value="{{ user.password }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Repetir Senha</div>
+    <div>
+      <input 
+        type="password"
+        name="passwordRepeat"
+        placeholder="Repita sua senha"
+        value="{{ user.passwordRepeat }}"
+      >
+    </div>
+  </div>
+
+<button type="submit">Salvar</button>

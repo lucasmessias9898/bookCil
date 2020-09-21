@@ -1,0 +1,65 @@
+<header>
+  <div class="container">
+    <a href="/home">
+      <div class="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Logo_Ambev.png" alt="Cervejaria Ambev">
+      </div>
+    </a>
+
+    <nav class="primary">
+      <ul>
+        <li>
+          <a href="/home">Home</a>
+        </li>
+        <li class="submenus">
+          <a href="/utilidades">Utilidades</a>
+          {% if session.userId %}
+            <ul class="submenu">
+              <li>
+                <a href="/utilidades/atividades">Lista de Atividades</a>
+              </li>
+            </ul>
+          {% endif %}
+        </li>
+        <li>
+          <a href="/xaropariasimples">Xaroparia Simples</a>
+        </li>
+        <li>
+          <a href="/xaropariacomposta">Xaroparia Composta</a>
+        </li>
+        <li>
+          <a href="/linha562">Linha 562</a>
+        </li>
+        <li>
+          <a href="/linha561">Linha 561</a>
+        </li>
+        <li>
+          <a href="/sopro">Sopro</a>
+        </li>
+        <li class="accounts">
+          <a href="/users/login">
+            <i class="material-icons">account_circle</i>
+            Logar
+          </a>
+          {% if session.userId %}
+            <ul class="submenu">
+              {% if session.nivel === '1'%}
+                <li>
+                  <a href="/users">Usuários</a>
+                </li>
+              {% endif %}
+              <li>
+                <a href="/users/{{session.userId}}">Minha conta</a>
+              </li>
+              <li>
+                <form action="/users/logout" method="POST">
+                  <button>Sair</button>
+                </form>
+              </li>
+            </ul>
+          {% endif %}
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,51 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  {% for activity in activities%}
+    <div class="card">
+      <section class="details">
+        
+        <h3>{{activity.equipamento}} - {{activity.tag}} - {{activity.description}}</h3>
+
+        <div class="item">
+          <div>Periodicidade</div>
+          <div>{{activity.periodicidade}} H</div>
+        </div>
+
+        <div class="item">
+          <div>Horimetro Atual</div>
+          <div>35170h</div>
+        </div>
+
+        <div class="item">
+          <div>Próxima Atividade</div>
+          <div>35182h</div>
+        </div>
+
+        <div class="item">
+          <div>Acompanhamento</div>
+          <div>
+            <span>12 h</span>
+          </div>
+        </div>
+        
+        <div class="item-button">
+          <div>
+            {% for file in files%}
+              <button type="submit">
+                <a href="{{file.src}}" target='_blank'>Procedimento</a>
+              </button>
+            {% endfor %}
+          </div>
+          <div>
+            <button type="submit">
+              <a href="/executions/{{ activity.id }}/create" >Atividade Realizada</a>
+            </button>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,113 @@
+<div class="item">
+  <div class="item">
+    <div>Área</div>
+    <div>
+      <select name="area_id">
+        {% for area in  areas %}
+          <option value="{{area.id}}" 
+            {% if activity.area_id == area.id %}selected {%endif%}}>
+            {{area.name}}
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Equipamento</div>
+    <div>
+      <input 
+        type="text"
+        name="equipamento"
+        placeholder="Digite o Nome do Equipamento"
+        value="{{ activity.equipamento }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Tag</div>
+    <div>
+      <input 
+        type="text"
+        name="tag"
+        placeholder="Digite a Tag do Equipamento"
+        value="{{ activity.tag }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Descrição</div>
+    <div>
+      <textarea name="description">{{activity.description}}</textarea>
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Periodicidade</div>
+    <div>
+      <input 
+        type="number"
+        name="periodicidade"
+        placeholder="Periodicidade da atividade"
+        value="{{ activity.periodicidade }}"
+        onkeydown="Mask.apply(this,'format')"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Anexar Procedimento</div>
+    <div id="pdf-upload">
+      <input 
+        id="pdf-input"
+        type="file"
+        name="pdf"
+        value="{{ activity.name }}"
+        accept=".pdf"
+        onchange="PdfUpload.handleFileInput(event)"
+      >
+      <p>Selecione o Procedimento</p>
+    </div>
+    <div id="pdf-preview">
+      {% if files %}
+        {% for pdf in files %}
+          <div class="pdf" id="{{pdf.id}}">
+            <img src="https://lh3.googleusercontent.com/10WLpgUsCM9MpJSIt51kf-HGTsTUAfQoBIwY249RW87Z0ggVDI9_zyOBfBZc-pTltQ" 
+              alt="{{pdf.name}}"
+            >
+            <i class="material-icons"
+              onclick="PdfUpload.removeOldPdf(event)"
+            >close
+            </i>
+          </div>
+        {% endfor %}
+        <input type="hidden" name="removed_files">
+      {% endif %}
+    </div>
+  </div>
+
+  {% if (activity.status == 1) or (activity.status == 0)%}
+  <div class="item">
+    <div>Status</div>
+    <div>
+      <span class="status">
+        <input type="radio" name="status" id="" value="1" 
+        {% if activity.status == 1 %} 
+          checked
+        {% endif %}>
+        Ativo
+      </span>
+      <span class="status">
+        <input type="radio" name="status" id="" value="0" 
+        {% if activity.status == 0 %} 
+          checked
+        {% endif %}>
+        Não Ativo
+      </span>
+    </div>
+  </div>
+  {% endif %}
+
+<button type="submit">Salvar</button>
