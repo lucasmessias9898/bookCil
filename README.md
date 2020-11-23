@@ -45,6 +45,6 @@ $ npm start
 
 ### ⚠️ Atenção
 
-O Projeto ainda está em desenvolvimento, o mesmo contará com atualizações e correções de possíveis erros.
+<b>O Projeto ainda está em desenvolvimento, o mesmo contará com atualizações e correções de possíveis erros.</b>
 
 Feito com ❤️ by **Automação Curitibana e Lucas Messias** 🤙
