@@ -29,18 +29,16 @@ E também será preciso um editor, eu indico o <b>[VSCode](https://code.visualst
 
 ```bash
 # Clone este repositório
-$ https://github.com/lucasmessias9898/bookCil.git
+$ git clone https://github.com/lucasmessias9898/bookCil.git
 
 # Acesse a pasta do projeto no terminal/cmd
 $ cd bookCil
 
-# Vá para a pasta Backend
-$ cd backend
-
 # Instale as dependências
 $ npm install 
 
-# Execute a aplicação em modo de desenvolvimento
+# Execute a aplicação 
 $ npm start
 
+# A aplicação iniciará automaticamente. 
 ```
