@@ -32,8 +32,8 @@ module.exports = {
         data.idambev,
         data.name,
         data.nivel,
-        data.area,
-        '1',
+        data.area_id,
+        1,
         passwordHash,
         data.status || 1
       ]
@@ -63,30 +63,31 @@ module.exports = {
     const results = await db.query(query)
     return results.rows[0]
   },
-  update(data) {
-    const query = `
-      UPDATE supervisors SET
-        idambev=($1)
-        name=($2)
-        nivel=($3)
-        area_id=($4)
-        position_id=($5)
-        password=($6)
-        status=($7)
-      WHERE id = $8
-    `
-    const values = [
-      data.idambev,
-      data.name,
-      data.nivel,
-      data.area_id,
-      data.position_id,
-      data.password,
-      data.status,
-      data.id
-    ]
+  async update(id, fields) {
 
+    const query = `
+      UPDATE users SET
+        idambev=($1),
+        name=($2),
+        nivel=($3),
+        area_id=($4),
+        position_id=($5),
+        status=($6)
+      WHERE id = $7
+    `
+
+    const values = [
+      fields.idambev,
+      fields.name,
+      fields.nivel,
+      fields.area_id,
+      1,
+      fields.status || 1,
+      id
+    ]
+  
     return db.query(query, values)
+    
   },
   delete(id) {
     return db.query(`DELETE FROM users WHERE id = $1`, [id])

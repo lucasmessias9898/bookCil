@@ -38,7 +38,7 @@
   <div class="item">
     <div>Área</div>
     <div>
-      <select name="area">
+      <select name="area_id">
         {% for area in areas %}
           <option value="{{area.id}}" 
             {% if user.area_id == area.id %}selected {%endif%}}>
@@ -59,7 +59,7 @@
         </option>
         <option value="2" 
           {% if user.nivel == "2"%}selected {%endif%}}>
-          Instrutor
+          Usuário
         </option>
       </select>
     </div>
@@ -71,22 +71,30 @@
       <input 
         type="password"
         name="password"
-        placeholder="Digite sua senha"
-        value="{{ user.password }}"
+        {%if not user.id%}
+          placeholder="Digite sua senha"
+        {%else%}
+          placeholder="Digite sua senha para atualizar seu cadastro"
+        {%endif%}
       >
     </div>
   </div>
 
-  <div class="item">
-    <div>Repetir Senha</div>
-    <div>
-      <input 
-        type="password"
-        name="passwordRepeat"
-        placeholder="Repita sua senha"
-        value="{{ user.passwordRepeat }}"
-      >
+  {%if not user.id %}
+    <div class="item">
+      <div>Repetir Senha</div>
+      <div>
+        <input 
+          type="password"
+          name="passwordRepeat"
+          placeholder="Repita sua senha"
+        >
+      </div>
     </div>
-  </div>
+  {%endif%}
 
-<button type="submit">Salvar</button>
+{%if not user.id%}
+  <button type="submit">Salvar</button>
+{%else%}
+  <button type="submit">Atualizar</button>
+{%endif%}

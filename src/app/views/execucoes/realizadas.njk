@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card table-container">
+    <a href="/utilidades/create">Novo</a>
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Atividade</th>
+          <th>Realizada</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for activityDone in activitiesDones %}
+          <tr>
+            <td>
+              {{activity.equipamento}} - {{activity.tag}} - {{activity.description}}
+            </td>
+            <td>{{activityDone.name}}</td>
+            <td><a href="/utilidades/{{activity.id}}">ver</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card table-container">
+    <table width="100%">
+      <thead>
+        <tr>
+          <th>Atividade Executada</th>
+          <th>Operador</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for activityDone in activitiesDones %}
+          <tr>
+            <td>
+              {% for activity in  activities %}
+                {% if activityDone.activity_id == activity.id %}
+                  {%for machine in machines %}
+                    {% if activity.machine_id == machine.id %} 
+                      {{machine.name}} - {{machine.tag}}
+                    {%endif%}   
+                  {% endfor %} 
+                  - {{activity.description}}
+                {%endif%}
+              {% endfor %}
+            </td>
+            <td>
+              {{activityDone.nomefuncionario}}
+            </td>
+            <td><a href="/execucoes/{{activityDone.activity_id}}">ver</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock content %}

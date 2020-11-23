@@ -1,0 +1,65 @@
+<div class="item">
+
+  
+  {% for activityActive in activity %}
+    <div class="item">
+      <div>Atividade</div>
+        <div>
+          <h3>
+            {%for machine in machines %}
+              {% if activityActive.machine_id == machine.id %} 
+                {{machine.name}} - {{machine.tag}} - {{activityActive.description}} -
+              {%for area in areas %}
+                {% if activityActive.area_id == area.id %} 
+                  {{area.name}}
+                {%endif%}   
+              {% endfor %} 
+
+          </h3>
+          <input type="hidden" name="activity_id" value="{{activityActive.id}}">
+          <input type="hidden" name="horimetroexec" value="{{machine.horimetro}}">
+          <input type="hidden" name="gaphorimetro" value="{{activityActive.horimetro_proxima - (machine.horimetro )}}">
+        </div>
+      </div>
+    </div>
+     {%endif%}   
+    {% endfor %} 
+  {% endfor %}
+
+  <div class="separador">
+    <h3>Dados Operador e Observações</h3>
+  </div>
+
+  <div class="item">
+    <div>Id Ambev</div>
+      <div>
+        <input 
+          type="text"
+          name="idambev"
+          placeholder="Digite seu ID Ambev"
+          value="{{ accomplish.idambev }}"
+        >
+      </div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Nome Completo</div>
+    <div>
+      <input 
+        type="text"
+        name="namefuncionario"
+        placeholder="Digite seu nome completo"
+        value="{{ accomplish.namefuncionario }}"
+      >
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Observações</div>
+    <div>
+      <textarea name="observation">{{accomplish.observation}}</textarea>
+    </div>
+  </div>
+
+<button type="submit">Salvar</button>

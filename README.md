@@ -8,3 +8,9 @@
 ### 💻 Projeto
 
 <b>Book CIL</b> 
+
+### ⚙ Como rodar este projeto
+
+O projeto está integrado backend e frontend:
+
+1. Backend/Frontend

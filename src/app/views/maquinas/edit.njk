@@ -1,0 +1,34 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+  <div class="card">
+    
+    <section class="details">
+    
+      <form method="POST" action="/maquinas?_method=PUT">
+        
+        <h3>Editar Máquina</h3>
+
+        {% include 'maquinas/fields.njk' %}
+
+        <input type="hidden" name="id" value="{{machine.id}}">
+        
+      </form>
+
+    </section>
+  </div>
+
+  <script>
+    const formDelete = document.querySelector("#form-delete")
+    formDelete.addEventListener("submit", function(event) {
+      const confirmation = confirm("Deseja realmente excluir a máquina? Essa operação não poderá ser desfeita.")
+
+      if(!confirmation) {
+        event.preventDefault()
+      }
+    })
+  </script>
+
+
+{% endblock content %}

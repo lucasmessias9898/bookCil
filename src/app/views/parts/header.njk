@@ -16,7 +16,10 @@
           {% if session.userId %}
             <ul class="submenu">
               <li>
-                <a href="/utilidades/atividades">Lista de Atividades</a>
+                <a href="/utilidades/atividades">Atividades</a>
+              </li>
+              <li>
+                <a href="/execucoes">Atividades Realizadas</a>
               </li>
             </ul>
           {% endif %}
@@ -46,6 +49,9 @@
               {% if session.nivel === '1'%}
                 <li>
                   <a href="/users">Usuários</a>
+                </li>
+                <li>
+                  <a href="/maquinas">Máquinas</a>
                 </li>
               {% endif %}
               <li>

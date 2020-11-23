@@ -6,30 +6,37 @@
       
       <h3>Detalhes</h3>
 
-      <h1>{{activity.equipamento}} - {{activity.tag}} - {{activity.description}}</h1>
+      <h1>
+        {%for machine in machines %}
+          {% if activity.machine_id == machine.id %} 
+            {{machine.name}}
+        - {{machine.tag}} - {{activity.description}}
+      </h1>
 
-      <div class="item">
-        <div>Periodicidade</div>
-        <div>{{activity.id}} H</div>
-      </div>
+          <div class="item">
+            <div>Periodicidade</div>
+            <div>{{activity.periodicidade}} H</div>
+          </div>
 
-      <div class="item">
-        <div>Horimetro Atual</div>
-        <div>35170h</div>
-      </div>
+          <div class="item">
+            <div>Horimetro Atual</div>
+            <div id="#horimetroAtual">{{machine.horimetro}}</div>
+          </div>
 
-      <div class="item">
-        <div>Próxima Atividade</div>
-        <div>35182h</div>
-      </div>
+          <div class="item">
+            <div>Próxima Atividade</div>
+            <div>{{activity.horimetro_proxima}}</div>
+          </div>
 
-      <div class="item">
-        <div>Acompanhamento</div>
-        <div>
-          <span>{{activity.periodicidade}} H</span>
-        </div>
-      </div>
-      
+          <div class="item">
+            <div>Acompanhamento</div>
+            <div>
+              <span id="acompanhamento">{{activity.horimetro_proxima - (machine.horimetro )}} H</span>
+            </div>
+          </div>
+        {%endif%}   
+      {% endfor %} 
+
       <div class="item-button">
         <div>
           {% for file in files%}
@@ -40,7 +47,7 @@
         </div>
         <div>
           <button type="submit">
-            <a href="/executions/{{ activity.id }}/create" >Atividade Realizada</a>
+            <a href="/execucoes/{{ activity.id }}/create" >Atividade Realizada</a>
           </button>
         </div>
       </div>
@@ -49,4 +56,17 @@
 
     </section>
   </div>
+
+  <script>
+    const value = document.getElementById("acompanhamento").innerHTML
+    const valorF = value.substr(0,2)
+    
+    if(Math.sign(valorF) === -1) {
+      var element = document.getElementById("acompanhamento");
+      element.classList.add("vencido");
+    }
+   
+    
+    setTimeout(function(){ location.reload(); }, 180000);
+  </script>
 {% endblock content %}

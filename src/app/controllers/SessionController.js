@@ -36,8 +36,9 @@ module.exports = {
 
     req.session.userId = user.id
     req.session.nivel = user.nivel
+    req.session.area = user.area_id
 
-    return res.redirect("/users")
+    return res.redirect(`/users/${user.id}`)
 
   },
   logout(req, res) {

@@ -1,0 +1,52 @@
+<div class="item">
+  <div>Nome Máquina</div>
+    <div>
+      <input 
+        type="text"
+        name="nomemaquina"
+        placeholder="Digite o nome da máquina"
+        value="{{ machine.name }}"
+      >
+    </div>
+  </div>
+
+   <div class="item">
+    <div>Tag Máquina</div>
+      <div>
+        <input 
+          type="text"
+          name="tag"
+          placeholder="Digite o Tag da máquina"
+          value="{{ machine.tag }}"
+        >
+      </div>
+    </div>
+  
+
+  <div class="item">
+    <div>Área</div>
+    <div>
+      <select name="area_id">
+        {% for area in areas %}
+          <option value="{{area.id}}" 
+            {% if user.area_id == area.id %}selected {%endif%}}>
+            {{area.name}}
+          </option>
+        {%endfor%}
+      </select>
+    </div>
+  </div>
+
+  <div class="item">
+    <div>Horimetro</div>
+    <div>
+      <input 
+        type="text"
+        name="horimetro"
+        placeholder="Digite o horimetro da máquina"
+        value="{{ machine.horimetro }}"
+      >
+    </div>
+  </div>
+
+<button type="submit">Salvar</button>

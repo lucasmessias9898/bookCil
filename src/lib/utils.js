@@ -29,7 +29,8 @@ module.exports = {
       minutes,
       iso: `${year}-${month}-${day}`,
       birthDay: `${day}/${month}`,
-      format: `${day}/${month}/${year}`
+      format: `${day}/${month}/${year}`,
+      formatDateHour:  `${day}/${month}/${year} - ${hour}:${minutes}`
     }
   }
 }

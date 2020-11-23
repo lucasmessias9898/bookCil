@@ -7,6 +7,8 @@
       <thead>
         <tr>
           <th>Atividade</th>
+          <th>Status</th>
+          <th>Gap</th>
           <th>Ação</th>
         </tr>
       </thead>
@@ -14,7 +16,27 @@
         {% for activity in activities %}
           <tr>
             <td>
-              {{activity.equipamento}} - {{activity.tag}} - {{activity.description}}
+              {%for machine in machines %}
+                {% if activity.machine_id == machine.id %} 
+                  {{machine.name}} - {{machine.tag}} 
+                {%endif%}   
+              {% endfor %} 
+              - {{activity.description}}
+            </td>
+            <td>
+              {% if activity.status === 1%}
+                Ativo
+              {% endif %}
+               {% if activity.status === 0%}
+                Não Ativo
+              {% endif %}
+            </td>
+            <td>
+              {%for machine in machines %}
+                {% if activity.machine_id == machine.id %} 
+                  {{activity.horimetro_proxima - (machine.horimetro )}}
+                {%endif%}   
+              {% endfor %} 
             </td>
             <td><a href="/utilidades/{{activity.id}}">ver</a></td>
           </tr>
@@ -22,4 +44,9 @@
       </tbody>
     </table>
   </div>
+
+  <script>
+    setTimeout(function(){ location.reload(); }, 180000);
+  </script>
+  
 {% endblock content %}

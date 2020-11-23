@@ -16,27 +16,17 @@
   <div class="item">
     <div>Equipamento</div>
     <div>
-      <input 
-        type="text"
-        name="equipamento"
-        placeholder="Digite o Nome do Equipamento"
-        value="{{ activity.equipamento }}"
-      >
+      <select name="machine_id">
+        {% for machine in  machines %}
+          <option value="{{machine.id}}" 
+            {% if activity.machine_id == machine.id %}selected {%endif%}}>
+            {{machine.name}}
+          </option>
+        {% endfor %}
+      </select>
     </div>
   </div>
-
-  <div class="item">
-    <div>Tag</div>
-    <div>
-      <input 
-        type="text"
-        name="tag"
-        placeholder="Digite a Tag do Equipamento"
-        value="{{ activity.tag }}"
-      >
-    </div>
-  </div>
-
+  
   <div class="item">
     <div>Descrição</div>
     <div>

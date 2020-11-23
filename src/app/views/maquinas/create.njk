@@ -1,0 +1,13 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <form class="card" method="POST" action="/maquinas">
+    <section class="details">
+      
+      <h3>Nova Máquina</h3>
+
+      {% include 'maquinas/fields.njk' %}
+
+    </section>
+  </form>
+{% endblock content %}

@@ -1,0 +1,74 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card">
+    <section class="details">
+      
+      <h3>Atividade Realizada</h3>
+
+      <div class="item">
+        <div>Atividade</div>
+        <div>
+          <h3>
+            {%for machine in machines %}
+              {% if activity.machine_id == machine.id %} 
+                {{machine.name}} - {{machine.tag}} - {{activity.description}} -
+                {%for area in areas %}
+                  {% if activity.area_id == area.id %} 
+                    {{area.name}}
+                  {%endif%}   
+                {% endfor %} 
+              {%endif%}   
+            {% endfor %}
+          </h3>
+        </div>
+      </div>
+
+      <div class="separador">
+        <h3>Dados da Execução e Observações</h3>
+      </div>
+    
+      <div class="item">
+        <div>Id Operador</div>
+        <div>{{activitiesDones.idfuncionario}}</div>
+      </div>
+
+      <div class="item">
+        <div>Nome Operador</div>
+        <div>{{activitiesDones.nomefuncionario}}</div>
+      </div>
+
+      <div class="item">
+        <div>Área</div>
+        {% for area in  areas %}
+         <div>
+            {% if activity.area_id == area.id %} 
+              {{area.name}}
+            {%endif%}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="item">
+        <div>Horimetro de Execução</div>
+        <div>{{activitiesDones.horimetroexec}}</div>
+      </div>
+
+      <div class="item">
+        <div>Gap de Execução</div>
+        <div>{{activitiesDones.gaphorimetro}}</div>
+      </div>
+
+      <div class="item">
+        <div>Observações</div>
+        <div>{{activitiesDones.observation}}</div>
+      </div>
+
+      <div class="item">
+        <div>Realizada</div>
+        <div>{{activitiesDones.created_at}}</div>
+      </div>
+
+    </section>
+  </div>
+{% endblock content %}

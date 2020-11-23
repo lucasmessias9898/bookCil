@@ -1,0 +1,39 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+  <div class="card">
+    <section class="details">
+      
+      <h3>Detalhes</h3>
+
+      <div class="item">
+        <div>Nome Máquina</div>
+        <div>{{machine.name}}</div>
+      </div>
+
+      <div class="item">
+        <div>Tag Máquina</div>
+        <div>{{machine.tag}}</div>
+      </div>
+
+      <div class="item">
+        <div>Área</div>
+        {% for area in  areas %}
+          <div>
+            {% if machine.area_id == area.id %} 
+              {{area.name}}
+            {%endif%}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="item">
+        <div>Horimetro</div>
+        <div>{{machine.horimetro}}</div>
+      </div>
+
+      <a href="/maquinas/{{ machine.id }}/edit" class="button">Editar</a>
+
+    </section>
+  </div>
+{% endblock content %}
