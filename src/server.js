@@ -26,5 +26,5 @@ nunjucks.configure("src/app/views", {
 })
 
 server.listen(8000, function() {
-  console.log("server")
+  console.log("Servidor iniciado")
 })
