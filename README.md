@@ -42,3 +42,9 @@ $ npm start
 
 # A aplicação iniciará automaticamente. 
 ```
+
+### ⚠️ Atenção
+
+O Projeto ainda está em desenvolvimento, o mesmo contará com atualizações e correções de possíveis erros.
+
+Feito com ❤️ by **Automação Curitibana e Lucas Messias** 🤙
